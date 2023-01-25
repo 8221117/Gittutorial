@@ -46,9 +46,9 @@ console.log(headerTitle);
 
 //selectors - getElementById
 
-var header = document.getElementById("main-header");
+//var header = document.getElementById("main-header");
 
-header.style.borderBottom = "solid 3px #000";
+//header.style.borderBottom = "solid 3px #000";
 
 //selectors - GETELEMENTSBYCLASS
 
@@ -71,23 +71,72 @@ for (i = 0; i < items.length; i++) {
 
 //selectors - queryselector
 
-var li = document.querySelector(".title");
+/*var li = document.querySelector(".title");
 
 li.style.backgroundColor = "Green";
 
 li.style.fontWeight = "bold";
 
+var header = document.querySelector("#main-header");
+
+header.style.borderBottom = "solid 3px #000";
+
+var input = document.querySelector("input"); // though there are lots of input elements available , it will take only the first element.
+
+input.value = "hello world";
+
+var submit = document.querySelector("input[type='submit']");
+
+submit.value = "send";
+submit.style.backgroundColor = "pink";
+
+var item = document.querySelector(".list-group-item");
+
+item.style.color = "blue"; // changes only for the first li(item 1)
+
+var lastItems = document.querySelector(".list-group-item:last-child");
+
+lastItems.style.color = "red"; //for last item in the list.
+
+var secondItems = document.querySelector(".list-group-item:nth-child(2)");
+
+secondItems.style.backgroundColor = "orange"; //for 2nd  item in the list.
+
+//var thirdElement = document.querySelector(".list-group-item:nth-child(3)");
+
+//thirdElement.style.display = "none";  // makes the third item invisible. */
+
 //selectors - GETELEMENTSBYTAGNAME
-var li = document.getElementsByTagName("li");
 
-console.log(li);
+//var li = document.getElementsByTagName("li");
 
-console.log(li[1]);
-li[1].textContent = "Hello 2";
-li[1].style.fontWeight = "bold";
-li[2].style.backgroundColor = "Green";
+//console.log(li);
 
-for (i = 0; i < li.length; i++) {
-  //li[i].style.backgroundColor = "yellow";
-  li[i].style.fontWeight = "bold";
+//console.log(li[1]);
+//li[1].textContent = "Hello 2";
+//li[1].style.fontWeight = "bold";
+//li[2].style.backgroundColor = "green";
+
+//for (i = 0; i < li.length; i++) {
+//li[i].style.backgroundColor = "yellow";
+//li[i].style.fontWeight = "bold";
+//}
+
+//selectors - querySelectorAll
+
+var titles = document.querySelectorAll(".title");
+
+console.log(titles); // gives us the nodelist which is similar to collection , we can run array functions on node lists.
+
+titles[0].textContent = "Hi!"; // chnages the first title's text to hi
+
+var odd = document.querySelectorAll("li:nth-child(odd)");
+
+for (i = 0; i < odd.length; i++) {
+  odd[i].style.backgroundColor = "green"; // makes all the odd li elements background to green
 }
+
+var lisecond = document.querySelectorAll("li");
+
+lisecond[1].style.backgroundColor = "white"; //makes second item in li to white background.
+lisecond[1].style.color = "green"; //makes second item in li to green font color.
