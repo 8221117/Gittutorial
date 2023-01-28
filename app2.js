@@ -2,6 +2,8 @@ var form = document.getElementById("addForm");
 
 var itemList = document.getElementById("items");
 
+var filter = document.getElementById("filter");
+
 //form submit event
 
 form.addEventListener("submit", addItem);
@@ -9,6 +11,10 @@ form.addEventListener("submit", addItem);
 //del event
 
 itemList.addEventListener("click", removeItem);
+
+// filter event
+
+filter.addEventListener("keyup", filterItems);
 
 //add item function
 
@@ -81,4 +87,26 @@ function removeItem(e) {
       itemList.removeChild(li); //ul (itemList) is the parent of li.
     }
   }
+}
+
+// function for filter item
+
+function filterItems(e) {
+  //e.preventDefault();
+
+  var text = e.target.value.toLowerCase();
+  console.log(text);
+  //get lis
+  var items = itemList.getElementsByTagName("li");
+  //convert to an array
+
+  Array.from(items).forEach(function (item) {
+    var itemName = item.firstChild.textContent;
+    //console.log(itemName);
+    if (itemName.toLowerCase().indexOf(text) != -1) {
+      item.style.display = "block";
+    } else {
+      item.style.display = "none";
+    }
+  });
 }
