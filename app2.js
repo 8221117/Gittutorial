@@ -16,8 +16,28 @@ itemList.addEventListener("click", removeItem);
 
 filter.addEventListener("keyup", filterItems);
 
-//add item function
+//create element
 
+var newInput = document.createElement("input");
+
+newInput.className = "form-control mr-2";
+
+newInput.id = "description";
+
+newInput.setAttribute("type", "text");
+
+form.appendChild(newInput);
+
+//console.log(newInput);
+
+//console.log(form);
+
+var submitbtn = document.getElementById("insert");
+
+var parent = submitbtn.parentNode;
+parent.insertBefore(newInput, submitbtn);
+
+//add item function
 function addItem(e) {
   e.preventDefault();
   // console.log(1);
@@ -72,6 +92,16 @@ function addItem(e) {
 
   li.appendChild(editBtn);
 
+  // add description functionality .
+
+  var newItemdescription = document.getElementById("description").value;
+
+  // add description text node with input value into the li from the add form element (submit button)
+
+  li.appendChild(document.createTextNode(newItemdescription));
+
+  // itemList.appendChild(li);
+
   // add li to Ul
 
   itemList.appendChild(li);
@@ -101,7 +131,8 @@ function filterItems(e) {
   //convert to an array
 
   Array.from(items).forEach(function (item) {
-    var itemName = item.firstChild.textContent;
+    //var itemName = item.firstChild.textContent; // searchonly with the first box content which matches.
+    var itemName = item.textContent;
     //console.log(itemName);
     if (itemName.toLowerCase().indexOf(text) != -1) {
       item.style.display = "block";
@@ -110,3 +141,24 @@ function filterItems(e) {
     }
   });
 }
+/** //create element
+
+var newInput = document.createElement("input");
+
+newInput.className = "form-control mr-2";
+
+newInput.id = "description";
+
+newInput.setAttribute("type", "text");
+
+form.appendChild(newInput);
+
+console.log(newInput);
+
+console.log(form);
+
+var newItemdescription = document.getElementById("description").value;
+
+// add description text node with input value into the li from the add form element (submit button)
+
+li.appendChild(document.createTextNode(newItemdescription)); **/
