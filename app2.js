@@ -98,7 +98,15 @@ function addItem(e) {
 
   // add description text node with input value into the li from the add form element (submit button)
 
-  li.appendChild(document.createTextNode(newItemdescription));
+  // li.appendChild(document.createTextNode(newItemdescription));
+
+  //create p tag
+
+  var p = document.createElement("p");
+
+  p.appendChild(document.createTextNode(newItemdescription));
+
+  li.appendChild(p);
 
   // itemList.appendChild(li);
 
